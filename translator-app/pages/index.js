@@ -1,12 +1,14 @@
 import Fields from "@/components/fields"
 import Languages from "@/components/languages"
 import Translate from "@/components/translate"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 export default function Home() {
   const [text, setText] = useState('')
-
+  useEffect(() => {
+    console.log('Este es mi texto, ', text);
+  })
   return (
     <>
       <header className="my-8 ml-5">
@@ -14,7 +16,7 @@ export default function Home() {
       </header>
 
       <main className="ml-5">
-        <Fields/>
+        <Fields onChange={setText}/>
         <Languages/>
         <Translate/>
       </main>
