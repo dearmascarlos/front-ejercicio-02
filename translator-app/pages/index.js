@@ -1,8 +1,12 @@
 import Fields from "@/components/fields"
 import Languages from "@/components/languages"
+import Translate from "@/components/translate"
+import { useState } from "react"
 
 
 export default function Home() {
+  const [text, setText] = useState('')
+
   return (
     <>
       <header className="my-8 ml-5">
@@ -11,18 +15,9 @@ export default function Home() {
 
       <main className="ml-5">
         <Fields/>
-
         <Languages/>
-        
-        
-
-        <div>
-          <h3 className="font-sans text-xl font-semibold mb-3">Output</h3>
-          <div className='bg-gray-100 w-full h-20 w-3/5 rounded'></div>
-        </div>
+        <Translate/>
       </main>
-
-
     </>
   )
 }
