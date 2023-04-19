@@ -6,8 +6,10 @@ import { useEffect, useState } from "react"
 
 export default function Home() {
   const [text, setText] = useState('')
+  const [language, setLanguage] = useState('es')
+
   useEffect(() => {
-    console.log('Este es mi texto, ', text);
+    console.log('Mi idioma es, ', language);
   })
   return (
     <>
@@ -17,7 +19,7 @@ export default function Home() {
 
       <main className="ml-5">
         <Fields onChange={setText}/>
-        <Languages/>
+        <Languages language={language} onLanguageChange={setLanguage}/>
         <Translate/>
       </main>
     </>

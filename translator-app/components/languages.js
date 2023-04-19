@@ -1,10 +1,17 @@
-const Languages = () => {
+const Languages = ({ language, onLanguageChange}) => {
     return (
         <div>
           <h3 className="font-sans text-xl font-semibold mt-5 mb-3">Select desired language</h3>
           {LANGUAGES.map(({label, value}) => {
             return (
-                <button key={value} className="max-w-sm h-fit bg-blue-500 rounded p-2 mx-4 my-4 text-white">{label}</button>
+                <button 
+                    key={value} 
+                    className="max-w-sm h-fit bg-blue-500 rounded p-2 mx-4 my-4 text-white"
+                    onClick={() => onLanguageChange(value)}
+                >
+                    {label}
+                
+                </button>
             )
           })}
         </div>
