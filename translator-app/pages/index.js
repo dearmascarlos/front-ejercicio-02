@@ -1,32 +1,26 @@
+import Fields from "@/components/fields"
+import Languages from "@/components/languages"
+
 
 export default function Home() {
   return (
     <>
-      <header>
-        <h1>Translate app</h1>
+      <header className="my-8 ml-5">
+        <h1 className="font-sans text-4xl font-semibold">Translate app</h1>
       </header>
-      <body>
-        <div>
-          <h3>Enter English Text</h3>
-          <input placeholder="Enter your text here"></input>
-        </div>
+
+      <main className="ml-5">
+        <Fields/>
+
+        <Languages/>
         
-        <div>
-          <h3>Select desired language</h3>
-          <button>Afrikaans</button>
-          <button>Arabic</button>
-          <button>French</button>
-          <button>Hindi</button>
-          <button>Japanese</button>
-          <button>Portuguese</button>
-          <button>Spanish</button>
-        </div>
+        
 
         <div>
-          <h3>Output</h3>
-          <div></div>
+          <h3 className="font-sans text-xl font-semibold mb-3">Output</h3>
+          <div className='bg-gray-100 w-full h-20 w-3/5 rounded'></div>
         </div>
-      </body>
+      </main>
 
 
     </>
