@@ -3,11 +3,12 @@ import { useEffect, useState } from 'react';
 
 
 const Translate = ({ language, text }) => {
-  const [translated] = useTranslation( language, text)
+  const [translated] = useTranslation( text, language)
+  const translate = translated.data.translations[0].translatedText;
     return (
         <div>
           <h3 className="font-sans text-xl font-semibold mb-3">Output</h3>
-          <div className='bg-gray-100 h-20 w-3/5 rounded ml-4 border border-gray-600'>{translated}</div>
+          <div className='bg-gray-100 h-20 w-3/5 rounded ml-4 border border-gray-600 p-2'>{translate}</div>
         </div>
     );
 }
@@ -46,7 +47,7 @@ const doTranslation = debounce(
 
     try {
       const {data} = await axios.post(
-        "https://translation.googleapis.com/language/translate/v2?key=AIzaSyCf0Xy0OnhxlduyEt3K8zP-sOuu-l_u6uA", 
+        "https://translation.googleapis.com/language/translate/v2?key=AIzaSyDNltKX8oKTEQWRYGUtc4zzFWfNjFV2DvI", 
         {
           q: input,
           target: languageCode
