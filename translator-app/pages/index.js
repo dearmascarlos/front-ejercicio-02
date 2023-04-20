@@ -1,6 +1,7 @@
 import Fields from "@/components/fields"
 import Languages from "@/components/languages"
 import Translate from "@/components/translate"
+import NavBar from "@/components/navBar"
 import { useEffect, useState } from "react"
 
 export default function Home() {
@@ -8,18 +9,18 @@ export default function Home() {
   const [language, setLanguage] = useState('es')
 
   useEffect(() => {
-    console.log('Mi idioma es, ', language);
+    console.log(text);
   }, [text, language])
 
   return (
     <>
-      <header className="my-8 ml-5">
-        <h1 className="font-sans text-4xl font-semibold">Translate app</h1>
-      </header>
-      <main className="ml-5">
-        <Fields onChange={setText}/>
+        <NavBar/>
+      <main className="mx-5">
         <Languages language={language} onLanguageChange={setLanguage}/>
-        <Translate  language={language} text={text}/>
+        <div className="flex">
+          <Fields onChange={setText}/>
+          <Translate  language={language} text={text}/>
+        </div>
       </main>
     </>
   )

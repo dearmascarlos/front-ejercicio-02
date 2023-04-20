@@ -1,7 +1,7 @@
 const Languages = ({ language, onLanguageChange}) => {
     return (
-        <div>
-          <h3 className="font-sans text-xl font-semibold mt-5 mb-3">Select desired language</h3>
+        <div className="border-b-2 pb-5">
+          {/* <h3 className="font-sans text-xl font-semibold mt-5 mb-3">Select desired language</h3> */}
           {LANGUAGES.map(({label, value}) => {
             return (
                 <button 

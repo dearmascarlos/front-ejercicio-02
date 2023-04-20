@@ -4,12 +4,12 @@ import { useEffect, useState } from 'react';
 
 const Translate = ({ language, text }) => {
   const [translated] = useTranslation( text, language)
-  const translate = translated.data.translations[0].translatedText;
+
     return (
-        <div>
-          <h3 className="font-sans text-xl font-semibold mb-3">Output</h3>
-          <div className='bg-gray-100 h-20 w-3/5 rounded ml-4 border border-gray-600 p-2'>{translate}</div>
-        </div>
+        <>
+          {/* <h3 className="font-sans text-xl font-semibold mb-3">Output</h3> */}
+          <div className='bg-gray-100 h-40 w-1/2 p-2 rounded border-gray-600'>{translated}</div>
+        </>
     );
 }
 
@@ -17,9 +17,9 @@ const useTranslation = (text, language) => {
   const [translated, setTranslated] = useState('')
 
   useEffect(() => {
-    if(!text) {
-      return
-    }
+    // if(!text) {
+    //   return
+    // }
     const cancelToken =  axios.CancelToken.source()
     doTranslation(text, language, cancelToken, setTranslated)
   },[text, language])
@@ -56,7 +56,7 @@ const doTranslation = debounce(
           cancelToken: cancelToken.token
         }
       )
-      callback(data)
+      callback(data.data.translations[0].translatedText)
 
     } catch (error) {
       console.log('ERROR:', error);
