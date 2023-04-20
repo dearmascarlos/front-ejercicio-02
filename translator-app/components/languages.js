@@ -6,7 +6,11 @@ const Languages = ({ language, onLanguageChange}) => {
             return (
                 <button 
                     key={value} 
-                    className="max-w-sm h-fit bg-blue-500 rounded p-2 mx-4 my-4 text-white"
+                    className={`${language === value 
+                        ? 'max-w-sm h-fit bg-blue-500 rounded p-2 mx-4 my-4 text-white hover:bg-blue-700' 
+                        : 'max-w-sm h-fit bg-blue-950 rounded p-2 mx-4 my-4 text-white hover:bg-blue-700'
+                    }`}
+
                     onClick={() => onLanguageChange(value)}
                 >
                     {label}
